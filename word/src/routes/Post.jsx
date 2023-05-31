@@ -2,7 +2,6 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 const Post = () => {
   const {id} = useParams(); // Obtenha o valor do ID da rota
-  console.log(id)
   // Use o ID para buscar o conteúdo do post no backend ou em algum outro lugar
   // ...
 
