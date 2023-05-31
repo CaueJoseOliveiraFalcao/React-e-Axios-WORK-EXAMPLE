@@ -18,6 +18,7 @@ const Global = styled.div`
 //paginas
 import Home from './routes/home.jsx'
 import Newpost from './routes/newpost.jsx'
+import Post from './routes/Post.jsx'
 
 //condiguração de rotas
 import { createBrowserRouter , RouterProvider , Route } from 'react-router-dom'
@@ -33,6 +34,10 @@ const router  = createBrowserRouter([
       {
         path : '/new',
         element : <Newpost/>
+      },
+      {
+        path : '/post/:id',
+        element : <Post/>
       }
     ]
   }
