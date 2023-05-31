@@ -1,14 +1,29 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { useEffect , useState } from 'react';
+import blogFetch from '../axios/config';
 const Post = () => {
-  const {id} = useParams(); // Obtenha o valor do ID da rota
-  // Use o ID para buscar o conteúdo do post no backend ou em algum outro lugar
-  // ...
+  const {id} = useParams();
+  const [postAtual,setPostAtual] = useState(null)
+  const getBodys = async () => {
+    const response = await blogFetch.get(`/posts/${id}`)
+    setPostAtual(response.data)
+  }
+  useEffect(() => {
+    getBodys();
+  } , [])
 
   return (
     <div>
       {/* Renderize o conteúdo do post */}
-      <h1>Post ID: {id}</h1>
+      { postAtual ? (
+        <div key={postAtual.id}>
+          <h1>{postAtual.title}</h1>
+          <p>{postAtual.body}</p>
+        </div>
+      ) : (
+        <p>Carregando</p>
+      )}
       {/* Outros elementos da página */}
     </div>
   );

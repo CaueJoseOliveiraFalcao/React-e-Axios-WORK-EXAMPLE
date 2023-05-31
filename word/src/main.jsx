@@ -12,7 +12,7 @@ const Global = styled.div`
     background-color: #0e1217;
     color: white;
     width: 100%;
-    height: 100%;
+    min-height: 99vw;
 `
 
 //paginas
